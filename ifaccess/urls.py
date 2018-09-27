@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ifaccapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # daqui para baixo, deveria se utilizar o include, e todas essas linhas deveriam estar no arquivo ifaccapp/urls.py
+    path('', views.home, name='home'),
 ]
