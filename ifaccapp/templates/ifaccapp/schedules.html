@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
+        <title>IF Access | Horários</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Horários</h1>
+        </div>
+        <div class="content">
+            <br/>
+            <ul>
+                {% for schedule in schedules %}
+                    <li>
+                        <p>
+                            {{ schedule.ambient }} <br/>
+                            {{ schedule.day }} <br/>
+                            {{ schedule.entryTime }} <br/>
+                            {{ schedule.exitTime }} <br/>
+                            {{ schedule.person}} <br/>
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="register/register_schedule.html">Cadastrar novo horário</a>
+        </div>
+    </body>
+</html>

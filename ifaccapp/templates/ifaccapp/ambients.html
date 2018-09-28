@@ -8,17 +8,25 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
-        <title>IF Access | Início</title>
+        <title>IF Access | Ambientes</title>
     </head>
     <body>
         <div class="page-header">
-            <h1>IF Access</h1>
+            <h1>Ambientes</h1>
         </div>
         <div class="content">
             <br/>
-            <a href="people.html">Pessoas</a> |
-            <a href="ambients.html">Ambientes</a> |
-            <a href="schedules.html">Horários</a>
+            <ul>
+                {% for ambient in ambients %}
+                    <li>
+                        <p>
+                            {{ ambient.name }} <br/>
+                            ID: {{ ambient.ID }} <br/>
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="register/register_ambient.html">Cadastrar novo ambiente</a>
         </div>
     </body>
 </html>

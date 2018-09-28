@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
+        <title>IF Access | Pessoas</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Pessoas</h1>
+        </div>
+        <div class="content">
+            <br/>
+            <ul>
+                {% for person in people %}
+                    <li>
+                        <p>
+                            {{ person.name }} <br/>
+                            Matrícula: {{ person.registration }} <br/>
+                            Tag: {{ person.tag }} <br/>
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="register/register_person.html">Cadastrar nova pessoa</a>
+        </div>
+    </body>
+</html>

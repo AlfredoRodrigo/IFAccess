@@ -21,4 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # daqui para baixo, deveria se utilizar o include, e todas essas linhas deveriam estar no arquivo ifaccapp/urls.py
     path('', views.home, name='home'),
+    path('people.html', views.people, name='people'),
+    path('ambients.html', views.ambients, name='ambients'),
+    path('schedules.html', views.schedules, name='schedules'),
+    path('register/register_ambient.html', views.register_ambient, name='register_ambient'),
+    path('register/register_person.html', views.register_person, name='register_person'),
+    path('register/register_schedule.html', views.register_schedule, name='register_schedule'),
 ]

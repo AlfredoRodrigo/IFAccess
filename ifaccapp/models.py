@@ -6,10 +6,15 @@ class Person(models.Model):
     registration = models.BigIntegerField(primary_key=True)  # matrícula
     tag = models.IntegerField(null=True)
 
+    def __str__(self):
+        return self.name
 
 class Ambient(models.Model):
     name = models.TextField(null=True)
     ID = models.TextField(primary_key=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Schedule(models.Model):
