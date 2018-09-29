@@ -12,24 +12,65 @@
     </head>
     <body>
         <div class="page-header">
-            <h1>Horários</h1>
+            <div class="linha">
+                <header>
+                    <div class="coluna col4">
+                        <h1 class="logo">Horários</h1>
+                    </div>
+                    <div class="coluna col8">
+                        <nav>
+                            <ul class="menu inline sem-marcador">
+                                <li>
+                                    <a href="home.html"><button type="button" class="btn"><span class="glyphicon glyphicon-home"></span></button></a>
+                                </li>
+                                <li>
+                                    <a href="people.html"><button type="button" class="btn"><span class="glyphicon glyphicon-user"> Pessoas</span></button></a>
+                                </li>
+                                <li>
+                                    <a href="ambients.html"><button type="button" class="btn"><span class="glyphicon glyphicon-map-marker"> Ambientes</span></button></a>
+                                </li>
+                                <li>
+                                    <a href="schedules.html"><button type="button" class="btn btn-selected"><span class="glyphicon glyphicon-calendar"> Horários</span></button></a>
+                                </li>
+                                <li>
+                                    <a href="user.html"><button type="button" class="btn"><span class="glyphicon glyphicon-off"> Log</span></button></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
         </div>
-        <div class="content">
-            <br/>
-            <ul>
-                {% for schedule in schedules %}
-                    <li>
-                        <p>
-                            {{ schedule.ambient }} <br/>
-                            {{ schedule.day }} <br/>
-                            {{ schedule.entryTime }} <br/>
-                            {{ schedule.exitTime }} <br/>
-                            {{ schedule.person}} <br/>
-                        </p>
-                    </li>
-                {% endfor %}
-            </ul>
-            <a href="register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo horário</button></a>
+        <div class="content-schedule">
+            <div class="linha">
+                <header>
+                    <div class="coluna col12">
+                        <div class="schedule-grid-container">
+                            {% for schedule in schedules %}
+                                <div>
+                                    {{ schedule.ambient }} <br/>
+                                    {{ schedule.day }} <br/>
+                                    {{ schedule.entryTime }} <br/>
+                                    {{ schedule.exitTime }} <br/>
+                                    {{ schedule.person}} <br/>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="linha-bottom-menu">
+                <header>
+                    <ul class="menu bottom-inline sem-marcador">
+                        <li>
+                            <a href="register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo horário</button></a>
+                        </li>
+                        <li>
+                            <a href="register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-minus-sign"></span> Remover</button></a>
+                        </li>
+                    </ul>
+                </header>
+            </div>
         </div>
     </body>
 </html>

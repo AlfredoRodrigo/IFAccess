@@ -8,14 +8,14 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
-        <title>IF Access | Pessoas</title>
+        <title>IF Access | Entrar</title>
     </head>
     <body>
         <div class="page-header">
             <div class="linha">
                 <header>
                     <div class="coluna col4">
-                        <h1 class="logo">Pessoas</h1>
+                        <h1 class="logo">Entrar</h1>
                     </div>
                     <div class="coluna col8">
                         <nav>
@@ -41,34 +41,20 @@
                 </header>
             </div>
         </div>
-        <div class="content-people">
-            <div class="linha">
-                <header>
-                    <div class="coluna col12">
-                        <div class="people-grid-container">
-                            {% for person in people %}
-                                <div>
-                                    {{ person.name }} <br/>
-                                    <b>Matrícula:</b> {{ person.registration }} <br/>
-                                    Tag: {{ person.tag }} <br/>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </header>
-            </div>
-            <div class="linha-bottom-menu">
-                <header>
-                    <ul class="menu bottom-inline sem-marcador">
-                        <li>
-                            <a href="register/register_person.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar nova pessoa</button></a>
-                        </li>
-                        <li>
-                            <a href="register/register_person.html"><button type="button" class="btn"><span class="glyphicon glyphicon-minus-sign"></span> Remover</button></a>
-                        </li>
-                    </ul>
-                </header>
-            </div>
+        <div class="content">
+            <br/>
+            <ul>
+                {% for person in people %}
+                    <li>
+                        <p>
+                            {{ person.name }} <br/>
+                            Matrícula: {{ person.registration }} <br/>
+                            Tag: {{ person.tag }} <br/>
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="register/register_person.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar nova pessoa</button></a>
         </div>
     </body>
 </html>
