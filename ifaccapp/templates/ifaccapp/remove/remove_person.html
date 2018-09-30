@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
+        <title>IF Access | Remover pessoas</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Remover pessoas</h1>
+        </div>
+        <div>
+            <!--
+            <form method="POST" class="register_person_form">{% csrf_token %}
+                {{ remove_person.as_p }}
+                <button type="submit" class="save btn">Salvar</button>
+            </form>
+            -->
+        </div>
+        <div class="content-remove-person">
+            <div class="linha">
+                <header>
+                    <div class="coluna col12">
+                        <div>
+                            <table style="width: 100%">
+                                {% for person in people %}
+                                    <tr>
+                                        <td><input type="checkbox" title="checkbox" name="opcoes" value={{ person.registration }}/></td>
+                                        <td></td>
+                                        <td>{{ person.name }}</td>
+                                        <td>{{ person.registration }}</td>
+                                        <td>{{ person.tag }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+    </body>
+</html>

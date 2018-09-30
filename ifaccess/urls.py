@@ -28,4 +28,11 @@ urlpatterns = [
     path('register/register_ambient.html', views.register_ambient, name='register_ambient'),
     path('register/register_person.html', views.register_person, name='register_person'),
     path('register/register_schedule.html', views.register_schedule, name='register_schedule'),
+    path('edit/<str:pk>/edit_ambient.html', views.edit_ambient, name='edit_ambient'),
+    path('edit/<int:pk>/edit_person.html', views.edit_person, name='edit_person'),
+    path('edit/<int:pk>/edit_schedule.html', views.edit_schedule, name='edit_schedule'),
+    path('<int:pk>/people.html', views.remove_person, name='remove_person'),
+    path('<str:pk>/ambients.html', views.remove_ambient, name='remove_ambient'),
+    path('<int:pk>/schedules.html', views.remove_schedule, name='remove_schedule'),
 ]
+

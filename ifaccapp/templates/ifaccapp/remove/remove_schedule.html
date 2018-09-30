@@ -8,17 +8,17 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
-        <title>IF Access | Editar pessoa</title>
+        <title>IF Access | Cadastro de horário</title>
     </head>
     <body>
         <div class="page-header">
-            <h1>Editar pessoa</h1>
+            <h1>Cadastro de horário</h1>
         </div>
-        <div>
-            <form method="POST" class="edit_person_form">{% csrf_token %}
-                {{ edit_person.as_p }}
-                <button type="submit" class="save btn">Salvar</button>
-            </form>
-        </div>
+    <div>
+        <form method="POST" class="register_schedule_form">{% csrf_token %}
+            {{ register_schedule.as_p }}
+            <button type="submit" class="save btn">Salvar</button>
+        </form>
+    </div>
     </body>
 </html>

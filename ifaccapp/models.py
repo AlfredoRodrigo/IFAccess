@@ -9,7 +9,7 @@ class Person(models.Model):
         return self.name
 
 class Ambient(models.Model):
-    name = models.TextField(null=True, max_length=50, verbose_name="Nome")
+    name = models.TextField(null=True, max_length=100, verbose_name="Nome")
     ID = models.TextField(primary_key=True)
 
     def __str__(self):

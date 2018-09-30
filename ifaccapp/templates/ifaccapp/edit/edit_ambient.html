@@ -8,15 +8,15 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
-        <title>IF Access | Cadastro de ambiente</title>
+        <title>IF Access | Editar ambiente</title>
     </head>
     <body>
         <div class="page-header">
-            <h1>Cadastro de ambiente</h1>
+            <h1>Editar ambiente</h1>
         </div>
         <div>
-            <form method="POST" class="register_ambient_form">{% csrf_token %}
-                {{ register_ambient.as_p }}
+            <form method="POST" class="edit_ambient_form">{% csrf_token %}
+                {{ edit_ambient.as_p }}
                 <button type="submit" class="save btn">Salvar</button>
             </form>
         </div>

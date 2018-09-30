@@ -23,6 +23,11 @@ body {
     padding-right: 30px;
 }
 
+.content-ambients {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 a {
     color: #000000;
 }
@@ -170,7 +175,7 @@ ul.sem-marcador {
 
 .classroms-grid-container {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 50% 50%;
     grid-gap: 20px;
     padding: 20px 0 20px 0;
 }
@@ -186,7 +191,7 @@ ul.sem-marcador {
 
 .schedule-grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
     padding: 20px 0 20px 0;
 }
 

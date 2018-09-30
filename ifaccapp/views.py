@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from .models import Ambient
 from .models import Person
@@ -57,3 +58,51 @@ def register_schedule(request):
     else:
         register_schedule = ScheduleForm()
     return render(request, 'ifaccapp/register/register_schedule.html', {'register_schedule': register_schedule})
+
+def edit_ambient(request, pk):
+    ambient = get_object_or_404(Ambient, pk=pk)
+    if request.method == "POST":
+        edit_ambient = AmbientForm(request.POST, instance=ambient)
+        if edit_ambient.is_valid():
+            ambient = edit_ambient.save()
+            ambient.save()
+            return redirect('ambients')
+    else:
+        edit_ambient = AmbientForm(instance=ambient)
+    return render(request, 'ifaccapp/edit/edit_ambient.html', {'edit_ambient': edit_ambient})
+
+def edit_person(request, pk):
+    person = get_object_or_404(Person, pk=pk)
+    if request.method == "POST":
+        edit_person = PersonForm(request.POST, instance=person)
+        if edit_person.is_valid():
+            person = edit_person.save()
+            person.save()
+            return redirect('people')
+    else:
+        edit_person = PersonForm(instance=person)
+    return render(request, 'ifaccapp/edit/edit_person.html', {'edit_person': edit_person})
+
+def edit_schedule(request, pk):
+    schedule = get_object_or_404(Schedule, pk=pk)
+    if request.method == "POST":
+        edit_schedule = ScheduleForm(request.POST, instance=schedule)
+        if edit_schedule.is_valid():
+            schedule = edit_schedule.save()
+            schedule.save()
+            return redirect('schedules')
+    else:
+        edit_schedule = ScheduleForm(instance=schedule)
+    return render(request, 'ifaccapp/edit/edit_schedule.html', {'edit_schedule': edit_schedule})
+
+def remove_person(request, pk):
+    Person.objects.get(pk=pk).delete()
+    return redirect('people')
+
+def remove_ambient(request, pk):
+    Ambient.objects.get(pk=pk).delete()
+    return redirect('ambients')
+
+def remove_schedule(request, pk):
+    Schedule.objects.get(pk=pk).delete()
+    return redirect('schedules')

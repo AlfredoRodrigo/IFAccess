@@ -21,19 +21,19 @@
                         <nav>
                             <ul class="menu inline sem-marcador">
                                 <li>
-                                    <a href="home.html"><button type="button" class="btn"><span class="glyphicon glyphicon-home"></span></button></a>
+                                    <a href="{% url 'home' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-home"></span></button></a>
                                 </li>
                                 <li>
-                                    <a href="people.html"><button type="button" class="btn"><span class="glyphicon glyphicon-user"> Pessoas</span></button></a>
+                                    <a href="{% url 'people' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-user"></span> Pessoas</button></a>
                                 </li>
                                 <li>
-                                    <a href="ambients.html"><button type="button" class="btn"><span class="glyphicon glyphicon-map-marker"> Ambientes</span></button></a>
+                                    <a href="{% url 'ambients' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-map-marker"></span> Ambientes</button></a>
                                 </li>
                                 <li>
-                                    <a href="schedules.html"><button type="button" class="btn btn-selected"><span class="glyphicon glyphicon-calendar"> Horários</span></button></a>
+                                    <a href="{% url 'schedules' %}"><button type="button" class="btn btn-selected"><span class="glyphicon glyphicon-calendar"></span> Horários</button></a>
                                 </li>
                                 <li>
-                                    <a href="user.html"><button type="button" class="btn"><span class="glyphicon glyphicon-off"> Log</span></button></a>
+                                    <a href="user.html"><button type="button" class="btn"><span class="glyphicon glyphicon-off"></span> Log</button></a>
                                 </li>
                             </ul>
                         </nav>
@@ -53,6 +53,8 @@
                                     {{ schedule.entryTime }} <br/>
                                     {{ schedule.exitTime }} <br/>
                                     {{ schedule.person}} <br/>
+                                    <a class="btn btn-default" href="{% url 'edit_schedule' pk=schedule.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a class="btn btn-default" href="{% url 'remove_schedule' pk=schedule.pk %}"><span class="glyphicon glyphicon-minus-sign"></span> Remover</a>
                                 </div>
                             {% endfor %}
                         </div>
@@ -64,9 +66,6 @@
                     <ul class="menu bottom-inline sem-marcador">
                         <li>
                             <a href="register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo horário</button></a>
-                        </li>
-                        <li>
-                            <a href="register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-minus-sign"></span> Remover</button></a>
                         </li>
                     </ul>
                 </header>
