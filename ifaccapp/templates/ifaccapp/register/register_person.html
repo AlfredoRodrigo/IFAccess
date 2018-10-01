@@ -12,12 +12,54 @@
     </head>
     <body>
         <div class="page-header">
-            <h1>Cadastro de pessoa</h1>
+            <div class="linha">
+                <header>
+                    <div class="coluna col12">
+                        <h1 class="logo">Cadastro de pessoa</h1>
+                    </div>
+                </header>
+            </div>
         </div>
         <div>
             <form method="POST" class="register_person_form">{% csrf_token %}
-                {{ register_person.as_p }}
-                <button type="submit" class="save btn">Salvar</button>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-person-grid-container" style="grid-template-columns: auto">
+                                <div>
+                                    <strong>Nome:</strong><br/><br/>
+                                    {{ register_person.name }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-person-grid-container" style="grid-template-columns: auto auto; padding: 10px 0 0 0">
+                                <div>
+                                    <strong>Matrícula:</strong><br/><br/>
+                                    {{ register_person.registration }}<br/>
+                                </div>
+                                <div>
+                                    <strong>Tag:</strong><br/><br/>
+                                    {{ register_person.tag }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha-bottom-menu">
+                    <header>
+                        <ul class="menu bottom-inline sem-marcador">
+                            <li>
+                                <a href="{% url 'people' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</button></a>
+                                <button type="submit" class="save btn"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+                            </li>
+                        </ul>
+                    </header>
+                </div>
             </form>
         </div>
     </body>

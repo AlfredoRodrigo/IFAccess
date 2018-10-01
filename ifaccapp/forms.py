@@ -11,7 +11,7 @@ class PersonForm(forms.ModelForm):
 class AmbientForm(forms.ModelForm):
     class Meta:
         model = Ambient
-        fields = ('name', 'ID')
+        fields = ('type', 'name', 'ID')
 
 class ScheduleForm(forms.ModelForm):
     class Meta:

@@ -14,12 +14,12 @@
         <div class="page-header">
             <div class="linha">
                 <header>
-                    <div class="coluna col4">
+                    <div class="coluna col3">
                         <h1 class="logo">Ambientes</h1>
                     </div>
-                    <div class="coluna col8">
+                    <div class="coluna col9">
                         <nav>
-                            <ul class="menu inline sem-marcador">
+                            <ul class="menu inline sem-marcador" style="width: 700px">
                                 <li>
                                     <a href="{% url 'home' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-home"></span></button></a>
                                 </li>
@@ -33,7 +33,7 @@
                                     <a href="{% url 'schedules' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-calendar"></span> Horários</button></a>
                                 </li>
                                 <li>
-                                    <a href="user.html"><button type="button" class="btn"><span class="glyphicon glyphicon-off"></span> Log</button></a>
+                                    <a href="{% url 'administration' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-cog"></span> Administração</button></a>
                                 </li>
                             </ul>
                         </nav>
@@ -42,29 +42,31 @@
             </div>
         </div>
         <div class="content-ambients">
+            <div class="linha-top-menu">
+                <header>
+                    <ul class="menu top-inline sem-marcador">
+                        <li>
+                            <a href="{% url 'register_ambient' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo ambiente</button></a>
+                        </li>
+                    </ul>
+                </header>
+            </div>
             <div class="linha">
                 <header>
                     <div class="coluna col12">
-                        <div class="classroms-grid-container">
+                        <div class="classroms-grid-container" style="grid-gap: 10px">
                             {% for ambient in ambients %}
-                                <div>
+                                <div style="width: 450px">
+                                    {{ ambient.type }} -
                                     {{ ambient.name }} <br/>
                                     ID: {{ ambient.ID }} <br/>
                                     <a class="btn btn-default" href="{% url 'edit_ambient' pk=ambient.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                                     <a class="btn btn-default" href="{% url 'remove_ambient' pk=ambient.pk %}"><span class="glyphicon glyphicon-minus-sign"></span> Remover</a>
+                                    <a class="btn btn-default" href="{% url 'view_specific_schedules' pk=ambient.pk %}"><span class="glyphicon glyphicon-calendar"></span> Ver horários</a>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
-                </header>
-            </div>
-            <div class="linha-bottom-menu">
-                <header>
-                    <ul class="menu bottom-inline sem-marcador">
-                        <li>
-                            <a href="register/register_ambient.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo ambiente</button></a>
-                        </li>
-                    </ul>
                 </header>
             </div>
         </div>

@@ -55,6 +55,12 @@ a {
     padding: 0 0 100px 30px;
 }
 
+.linha-top-menu {
+    width: 960px;
+	margin: auto;
+	overflow: auto;
+}
+
 .linha-bottom-menu {
     width: 960px;
 	margin: auto;
@@ -126,6 +132,16 @@ ul.inline li:last-child {
     margin-right: 0;
 }
 
+ul.top-inline li {
+    display: inline;
+    margin-right: 15px;
+}
+
+ul.top-inline li:last-child {
+    margin-left: 0;
+    margin-right: 30px;
+}
+
 ul.bottom-inline li {
     display: inline;
     margin-right: 15px;
@@ -150,6 +166,11 @@ ul.sem-marcador {
     background-color: #76B376;
 }
 
+.btn-selected-special {
+    color: #FFFFFF;
+    background-color: #854242;
+}
+
 .btn-home {
     alignment: center;
     font-size: 20pt;
@@ -161,12 +182,13 @@ ul.sem-marcador {
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 20px;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 20px 0;
 }
 
 .people-grid-container > div {
     background-color: #EEEEEE;
     padding: 20px 20px 20px 20px;
+    border-radius:7px;
 }
 
 .people-grid-container > div:hover {
@@ -177,16 +199,98 @@ ul.sem-marcador {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 20px;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 20px 0;
 }
 
 .classroms-grid-container > div {
     background-color: #EEEEEE;
     padding: 20px 20px 20px 20px;
+    border-radius:7px;
 }
 
 .classroms-grid-container > div:hover {
     background-color: #DDDDDD;
+}
+
+.register-ambient-grid-container {
+    display: grid;
+    grid-gap: 20px;
+    padding: 20px 0 0 0;
+}
+
+.register-ambient-grid-container > div {
+    background-color: #EEEEEE;
+    padding: 20px 20px 20px 20px;
+    border-radius:7px;
+}
+
+.register-ambient-grid-container > div:hover {
+    background-color: #DDDDDD;
+}
+
+.register-ambient-grid-container > div > textarea {
+    width: 100%;
+    height: 66px;
+}
+
+.register-ambient-grid-container > div > select {
+    width: 100%;
+    height: 26px;
+}
+
+.register-person-grid-container {
+    display: grid;
+    grid-gap: 20px;
+    padding: 20px 0 0 0;
+}
+
+.register-person-grid-container > div {
+    background-color: #EEEEEE;
+    padding: 20px 20px 20px 20px;
+    border-radius:7px;
+}
+
+.register-person-grid-container > div:hover {
+    background-color: #DDDDDD;
+}
+
+.register-person-grid-container > div > textarea {
+    width: 100%;
+    height: 66px;
+}
+
+.register-person-grid-container > div > input {
+    width: 100%;
+}
+
+.register-schedule-grid-container {
+    display: grid;
+    grid-gap: 20px;
+    padding: 20px 0 0 0;
+}
+
+.register-schedule-grid-container > div {
+    background-color: #EEEEEE;
+    padding: 20px 20px 20px 20px;
+    border-radius:7px;
+}
+
+.register-schedule-grid-container > div:hover {
+    background-color: #DDDDDD;
+}
+
+.register-schedule-grid-container > div > textarea {
+    width: 100%;
+    height: 66px;
+}
+
+.register-schedule-grid-container > div > input {
+    width: 100%;
+}
+
+.register-schedule-grid-container > div > select {
+    width: 100%;
+    height: 26px;
 }
 
 .schedule-grid-container {
@@ -199,8 +303,13 @@ ul.sem-marcador {
     border: 1px solid;
     background-color: #EEEEEE;
     padding: 20px 20px 20px 20px;
+    border-radius:7px;
 }
 
 .schedule-grid-container > div:hover {
     background-color: #DDDDDD;
+}
+
+button:hover {
+    background-color: #CCCCCC;
 }

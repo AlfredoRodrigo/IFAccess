@@ -30,7 +30,7 @@
                                     <a href="{% url 'ambients' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-map-marker"></span> Ambientes</button></a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'schedules' %}"><button type="button" class="btn btn-selected"><span class="glyphicon glyphicon-calendar"></span> Horários</button></a>
+                                    <a href="{% url 'schedules' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-calendar"></span> Horários</button></a>
                                 </li>
                                 <li>
                                     <a href="{% url 'administration' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-cog"></span> Administração</button></a>
@@ -41,17 +41,8 @@
                 </header>
             </div>
         </div>
-        <div class="content-schedule">
+        <div class="content-specific-schedule">
             {% if schedules.count != 0 %}
-                <div class="linha-top-menu">
-                    <header>
-                        <ul class="menu top-inline sem-marcador">
-                            <li>
-                                <a href="register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo horário</button></a>
-                            </li>
-                        </ul>
-                    </header>
-                </div>
                 <div class="linha">
                     <header>
                         <div class="coluna col12">
@@ -73,14 +64,14 @@
                 </div>
             {% else %}
                 <div class="linha-top-menu" style="padding: 10px">
-                    <h4><br/>Não há horários cadastrados no sistema.<br/><br/>
-                    Para cadastrar um novo horário, clique em "Cadastrar novo horário".</h4>
+                    <h4><br/>Não há horários cadastrados para este ambiente.<br/><br/>
+                    Para cadastrar um novo horário, acesse a aba "Horários" e clique em "Cadastrar novo horário".</h4>
                 </div>
                 <div class="linha-bottom-menu">
                     <header>
                         <ul class="menu bottom-inline sem-marcador">
                             <li>
-                                <a href="{% url 'register_schedule' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo horário</button></a>
+                                <a href="{% url 'ambients' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</button></a>
                             </li>
                         </ul>
                     </header>

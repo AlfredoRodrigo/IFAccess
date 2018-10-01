@@ -7,6 +7,7 @@ from .models import Schedule
 from .forms import PersonForm
 from .forms import AmbientForm
 from .forms import ScheduleForm
+import csv
 
 # Create your views here.
 
@@ -106,3 +107,31 @@ def remove_ambient(request, pk):
 def remove_schedule(request, pk):
     Schedule.objects.get(pk=pk).delete()
     return redirect('schedules')
+
+def view_specific_schedules(request, pk):
+    schedules = Schedule.objects.filter(ambient=pk)
+    return render(request, 'ifaccapp/specific_schedules.html', {'schedules': schedules})
+
+def administration(request):
+    return render(request, 'ifaccapp/administration.html')
+
+def csv_generator(request):
+
+    schedules = Schedule.objects.all()
+    rows = []
+
+    writer = csv.writer(open("cadastro.csv", "w"))
+
+    for schedule in schedules:
+        row = []
+        row.append(schedule.day)
+        row.append(str(schedule.entryTime))
+        row.append(str(schedule.exitTime))
+        row.append(str(schedule.person.registration))
+        row.append(schedule.ambient.ID)
+        rows.append(row)
+
+    for r in rows:
+        writer.writerow(r)
+
+    return redirect('administration')

@@ -34,5 +34,8 @@ urlpatterns = [
     path('<int:pk>/people.html', views.remove_person, name='remove_person'),
     path('<str:pk>/ambients.html', views.remove_ambient, name='remove_ambient'),
     path('<int:pk>/schedules.html', views.remove_schedule, name='remove_schedule'),
+    path('<str:pk>/specific_schedules.html', views.view_specific_schedules, name='view_specific_schedules'),
+    path('administration.html', views.administration, name='administration'),
+    path('csv_generator.html', views.csv_generator, name='csv_generator'),
 ]
 
