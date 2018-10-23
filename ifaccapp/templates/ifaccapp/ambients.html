@@ -54,9 +54,9 @@
             <div class="linha">
                 <header>
                     <div class="coluna col12">
-                        <div class="classroms-grid-container" style="grid-gap: 10px">
+                        <div class="classroms-grid-container" style="grid-template-columns: 450px 450px; grid-gap: 20px">
                             {% for ambient in ambients %}
-                                <div style="width: 450px">
+                                <div>
                                     {{ ambient.type }} -
                                     {{ ambient.name }} <br/>
                                     ID: {{ ambient.ID }} <br/>

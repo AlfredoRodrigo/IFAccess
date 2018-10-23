@@ -197,7 +197,7 @@ ul.sem-marcador {
 
 .classroms-grid-container {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
     grid-gap: 20px;
     padding: 10px 0 20px 0;
 }

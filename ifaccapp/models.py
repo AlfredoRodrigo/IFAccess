@@ -25,6 +25,9 @@ class Ambient(models.Model):
     type = models.TextField(null=True, max_length=50, choices=TYPE_CHOICES, verbose_name="Tipo de ambiente")
     name = models.TextField(null=True, max_length=100, verbose_name="Nome")
     ID = models.TextField(primary_key=True, max_length=50)
+    IP = models.TextField(null=True, max_length=15, verbose_name="IP")
+    mask = models.TextField(null=True, max_length=15, verbose_name="Máscara")
+
 
     def __str__(self):
         return self.name
