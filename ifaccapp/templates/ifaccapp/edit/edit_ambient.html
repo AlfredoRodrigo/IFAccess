@@ -12,12 +12,70 @@
     </head>
     <body>
         <div class="page-header">
-            <h1>Editar ambiente</h1>
+            <div class="linha">
+                <header>
+                    <div class="coluna col12">
+                        <h1 class="logo">Editar ambiente</h1>
+                    </div>
+                </header>
+            </div>
         </div>
         <div>
             <form method="POST" class="edit_ambient_form">{% csrf_token %}
-                {{ edit_ambient.as_p }}
-                <button type="submit" class="save btn">Salvar</button>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-ambient-grid-container" style="grid-template-columns: auto">
+                                <div>
+                                    <strong>Tipo de ambiente:</strong><br/><br/>
+                                    {{ edit_ambient.type }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-ambient-grid-container" style="grid-template-columns: auto auto; padding: 10px 0 0 0">
+                                <div>
+                                    <strong>Nome:</strong><br/><br/>
+                                    {{ edit_ambient.name }}<br/>
+                                </div>
+                                <div>
+                                    <strong>ID:</strong><br/><br/>
+                                    {{ edit_ambient.ID }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-ambient-grid-container" style="grid-template-columns: auto auto; padding: 10px 0 0 0">
+                                <div>
+                                    <strong>IP:</strong><br/><br/>
+                                    {{ edit_ambient.IP }}<br/>
+                                </div>
+                                <div>
+                                    <strong>Máscara:</strong><br/><br/>
+                                    {{ edit_ambient.mask }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha-bottom-menu">
+                    <header>
+                        <ul class="menu bottom-inline sem-marcador">
+                            <li>
+                                <a href="{% url 'ambients' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</button></a>
+                                <button type="submit" class="save btn"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+                            </li>
+                        </ul>
+                    </header>
+                </div>
             </form>
         </div>
     </body>

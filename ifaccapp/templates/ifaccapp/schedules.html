@@ -55,7 +55,9 @@
                 <div class="linha">
                     <header>
                         <div class="coluna col12">
-                            <div class="schedule-grid-container">
+                            <!--<div class="schedule-grid-container">-->
+                            <!-- Esse código comentado acima estava no lugar da linha abaixo. Restaurar, em caso de problemas. -->
+                            <div class="people-grid-container" style="grid-template-columns: 215px 215px 215px 215px; grid-gap: 20px">
                                 {% for schedule in schedules %}
                                     <div>
                                         {{ schedule.ambient }} <br/>

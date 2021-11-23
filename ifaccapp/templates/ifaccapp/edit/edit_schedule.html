@@ -12,12 +12,62 @@
     </head>
     <body>
         <div class="page-header">
-            <h1>Editar horário</h1>
+            <div class="linha">
+                <header>
+                    <div class="coluna col12">
+                        <h1 class="logo">Editar horário</h1>
+                    </div>
+                </header>
+            </div>
         </div>
         <div>
             <form method="POST" class="edit_schedule_form">{% csrf_token %}
-                {{ edit_schedule.as_p }}
-                <button type="submit" class="save btn">Salvar</button>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-schedule-grid-container" style="grid-template-columns: 280px 300px 300px">
+                                <div>
+                                    <strong>Dia:</strong><br/><br/>
+                                    {{ edit_schedule.day }}<br/>
+                                </div>
+                                <div>
+                                    <strong>Hora de entrada:</strong><br/><br/>
+                                    {{ edit_schedule.entryTime }}<br/>
+                                </div>
+                                <div>
+                                    <strong>Hora de saída:</strong><br/><br/>
+                                    {{ edit_schedule.exitTime }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-schedule-grid-container" style="grid-template-columns: 450px 450px; padding: 10px 0 0 0">
+                                <div>
+                                    <strong>Pessoa:</strong><br/><br/>
+                                    {{ edit_schedule.person }}<br/>
+                                </div>
+                                <div>
+                                    <strong>Ambiente:</strong><br/><br/>
+                                    {{ edit_schedule.ambient }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="linha-bottom-menu">
+                    <header>
+                        <ul class="menu bottom-inline sem-marcador">
+                            <li>
+                                <a href="{% url 'schedules' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-chevron-left"></span> Voltar</button></a>
+                                <button type="submit" class="save btn"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+                            </li>
+                        </ul>
+                    </header>
+                </div>
             </form>
         </div>
     </body>

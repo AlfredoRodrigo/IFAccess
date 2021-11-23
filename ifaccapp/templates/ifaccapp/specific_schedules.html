@@ -43,10 +43,21 @@
         </div>
         <div class="content-specific-schedule">
             {% if schedules.count != 0 %}
+                <div class="linha-top-menu">
+                    <header>
+                        <ul class="menu top-inline sem-marcador">
+                            <li>
+                                <a href="../register/register_schedule.html"><button type="button" class="btn"><span class="glyphicon glyphicon-plus-sign"></span> Cadastrar novo horário</button></a>
+                            </li>
+                        </ul>
+                    </header>
+                </div>
                 <div class="linha">
                     <header>
                         <div class="coluna col12">
-                            <div class="schedule-grid-container">
+                            <!--<div class="schedule-grid-container">-->
+                            <!-- Esse código comentado acima estava no lugar da linha abaixo. Restaurar, em caso de problemas. -->
+                            <div class="people-grid-container" style="grid-template-columns: 215px 215px 215px 215px; grid-gap: 20px">
                                 {% for schedule in schedules %}
                                     <div>
                                         {{ schedule.ambient }} <br/>
