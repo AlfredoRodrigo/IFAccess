@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cbf98a0a-9035-4a5e-b25b-887da3904e59" name="Default" comment="Subindo atualizações">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +246,7 @@
       <workItem from="1640008976831" duration="19000" />
       <workItem from="1644286476214" duration="640000" />
       <workItem from="1644287166336" duration="12304000" />
-      <workItem from="1645843702088" duration="2911000" />
+      <workItem from="1645843702088" duration="3678000" />
     </task>
     <task id="LOCAL-00001" summary="Subindo atualizações">
       <created>1646403814454</created>
