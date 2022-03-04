@@ -4,7 +4,7 @@ from django.db import models
 class Person(models.Model):
     name = models.TextField(null=True, max_length=100, verbose_name="Nome")
     registration = models.BigIntegerField(primary_key=True, verbose_name="Matrícula")  # matrícula
-    tag = models.IntegerField(null=True)
+    tag = models.TextField(null=True)
 
     def __str__(self):
         return self.name

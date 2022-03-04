@@ -8,6 +8,17 @@ from .forms import PersonForm
 from .forms import AmbientForm
 from .forms import ScheduleForm
 import csv
+import random
+import time
+
+from paho.mqtt import client as mqtt_client
+
+broker = 'mqtt.eclipseprojects.io'
+port = 1883
+topic = "IFAccess"
+client_id = f'python-mqtt-{random.randint(0, 1000)}'
+# username = 'emqx'
+# password = 'public'
 
 # Create your views here.
 
@@ -120,6 +131,24 @@ def csv_generator(request):
     schedules = Schedule.objects.all()
     rows = []
 
+    with open('cadastro.csv', 'w', newline="") as csvfile:
+        writer = csv.writer(csvfile)
+
+        for schedule in schedules:
+            row = []
+            row.append(schedule.day)
+            row.append(str(schedule.entryTime))
+            row.append(str(schedule.exitTime))
+            row.append(str(schedule.person.registration))
+            row.append(schedule.ambient.ID)
+            row.append(str(schedule.person.tag) + ";")
+            rows.append(row)
+
+        for r in rows:
+            print(r)
+            writer.writerow(r)
+
+    '''
     writer = csv.writer(open("cadastro.csv", "w"))
 
     for schedule in schedules:
@@ -129,9 +158,68 @@ def csv_generator(request):
         row.append(str(schedule.exitTime))
         row.append(str(schedule.person.registration))
         row.append(schedule.ambient.ID)
+        row.append(schedule.person.tag)
         rows.append(row)
 
     for r in rows:
         writer.writerow(r)
+        
+    '''
+    '''
+    with open('cadastro.csv') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=",")
+
+        for row in spamreader:
+            print("".join(row))
+    '''
+
+    sent_to_arduino()
 
     return redirect('administration')
+
+def connect_mqtt():
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print("Conectado ao broker MQTT!")
+        else:
+            print("A conexão com o broker MQTT falhou. Código de retorno: %d\n", rc)
+
+    #setando a conexão do ID do cliente
+    client = mqtt_client.Client(client_id)
+    # client.username_pw_set(username, password)
+    client.on_connect = on_connect
+    client.connect(broker, port)
+    return client
+
+def publish(client):
+    with open('cadastro.csv') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=",")
+
+        client.publish(topic, "BEGIN")
+
+        for row in spamreader:
+            time.sleep(1/10)
+            client.publish(topic, ",".join(row))
+
+        client.publish(topic, "END")
+
+    '''
+    msg_count = 0
+    while True:
+        time.sleep(1)
+        msg = f"messages: {msg_count}"
+        result = client.publish(topic, msg)
+        # result: [0, 1]
+        status = result[0]
+        if status == 0:
+            print(f"Mensagem '{msg}' enviada ao tópico `{topic}`")
+        else:
+            print(f"Falha ao enviar a mensagem ao tópico `{topic}`")
+        msg_count += 1
+    '''
+
+def sent_to_arduino():
+    client = connect_mqtt()
+    client.loop_start()
+    publish(client)
+    client.loop_stop()
