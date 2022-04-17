@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbf98a0a-9035-4a5e-b25b-887da3904e59" name="Default" comment="Instalando versão do Django e lib paho-mqtt">
+      <change afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cadastro.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/register/register_schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/register/register_schedule.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccess/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccess/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccess/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,6 +259,7 @@
       <workItem from="1644286476214" duration="640000" />
       <workItem from="1644287166336" duration="12304000" />
       <workItem from="1645843702088" duration="5481000" />
+      <workItem from="1650219105562" duration="15323000" />
     </task>
     <task id="LOCAL-00001" summary="Subindo atualizações">
       <created>1646403814454</created>
