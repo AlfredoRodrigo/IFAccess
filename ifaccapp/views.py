@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.http import HttpResponseRedirect
@@ -255,13 +255,13 @@ def signup(request):
         signup = SignupForm(data=request.POST)
 
         if signup.is_valid():
-            user = signup.cleaned_data.get('user')
+            username = signup.cleaned_data.get('user')
             password = signup.cleaned_data.get('password')
             confirmPassword = signup.cleaned_data.get('confirmPassword')
 
-            if user and password and confirmPassword and (password == confirmPassword):
+            if username and password and confirmPassword and (password == confirmPassword):
                 userObject = User.objects.create_user(
-                    username = user,
+                    username = username,
                     password = password
                 )
 
@@ -270,22 +270,27 @@ def signup(request):
 
     return render(request, 'ifaccapp/signup.html', {'signup': signup, 'error': "Usuário ou senha inválidos."})
 
-def login(request):
+def loginView(request):
     loginForm = LoginForm()
+
+    if request.method == "GET":
+        return render(request, 'ifaccapp/login.html', {'login': loginForm})
+
     if request.method == "POST":
         loginForm = LoginForm(data=request.POST)
 
         if loginForm.is_valid():
-            user = loginForm.cleaned_data.get('user')
+            username = loginForm.cleaned_data.get('user')
             password = loginForm.cleaned_data.get('password')
 
-            if user and password and authenticate(username=user, password=password):
-                user = User.objects.create_user(
-                    username = user,
-                    password = password
-                )
-
+            if username and password and authenticate(username=username, password=password):
+                user = User.objects.get_by_natural_key(username)
                 login(request, user)
                 return HttpResponseRedirect(reverse('home'))
 
-    return render(request, 'ifaccapp/login.html', {'login': loginForm, 'error': "Usuário ou senha inválidos."})
+        return render(request, 'ifaccapp/login.html', {'login': loginForm, 'error': "Usuário ou senha inválidos."})
+
+@login_required(redirect_field_name = None, login_url='/login.html')
+def logoutView(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('login'))

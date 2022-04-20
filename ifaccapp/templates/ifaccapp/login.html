@@ -31,7 +31,10 @@
                                     {{ login.user }}<br/><br/>
                                     <strong>Senha:</strong><br/>
                                     {{ login.password }}<br/><br/>
-                                    <!-- AQUI TEM QUE IMPRIMIR UM ERRO, CASO OS DADOS INFORMADOS NÃO SEJAM VÁLIDOS -->
+                                    {% if error %}
+                                        <span style="color: red;">{{ error }}</span>
+                                        <br><br>
+                                    {% endif %}
                                     <input type="submit" value="Efetuar login" />
                                 </div>
                             </div>
