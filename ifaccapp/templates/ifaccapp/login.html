@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
+        <title>IF Access | Login</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <div class="linha">
+                <header>
+                    <div class="coluna col12">
+                        <h1 class="logo">Login</h1>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div>
+            <form method="POST" class="login_form">{% csrf_token %}
+                <div class="linha">
+                    <header>
+                        <div class="coluna col12">
+                            <div class="register-schedule-grid-container" style="grid-template-columns: 280px 300px 300px; padding: 40px 0 0 333px">
+                                <div>
+                                    <strong>Usuário:</strong><br/>
+                                    {{ login.user }}<br/><br/>
+                                    <strong>Senha:</strong><br/>
+                                    {{ login.password }}<br/><br/>
+                                    {% if error %}
+                                        <span style="color: red;">{{ error }}</span>
+                                        <br><br>
+                                    {% endif %}
+                                    <input type="submit" value="Efetuar login" />
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

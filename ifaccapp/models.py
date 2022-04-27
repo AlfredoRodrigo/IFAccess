@@ -63,3 +63,12 @@ class Schedule(models.Model):
     def clean(self):
         if self.entryTime > self.exitTime:
             raise ValidationError('O horário de entrada é maior que o horário de saída.')
+
+class Signup(models.Model):
+    user = models.CharField(null=True, max_length=50, verbose_name="Usuário")
+    password = models.CharField(null=True, max_length=50, verbose_name="Senha")
+    confirmPassword = models.CharField(null=True, max_length=50, verbose_name="Confirmação de senha")
+
+class Login(models.Model):
+    user = models.CharField(null=True, max_length=50, verbose_name="Usuário")
+    password = models.CharField(null=True, max_length=50, verbose_name="Senha")

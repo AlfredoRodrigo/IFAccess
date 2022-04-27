@@ -15,13 +15,16 @@
             <div class="linha">
                 <header>
                     <div class="coluna col3">
-                        <h1 class="logo">IF Access</h1>
+                        <h1 class="logo">IF Access {{ request.user.username }}</h1>
                     </div>
                     <div class="coluna col9">
                         <nav>
                             <ul class="menu inline sem-marcador" style="width: 700px">
                                 <li>
                                     <a href="{% url 'administration' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-cog"></span> Administração</button></a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'logout' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-log-out"></span></button></a>
                                 </li>
                             </ul>
                         </nav>

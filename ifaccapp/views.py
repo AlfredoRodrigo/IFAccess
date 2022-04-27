@@ -1,12 +1,19 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from .models import Ambient
 from .models import Person
 from .models import Schedule
 from .forms import PersonForm
 from .forms import AmbientForm
 from .forms import ScheduleForm
+from .forms import SignupForm
+from .forms import LoginForm
 import csv
 import random
 import time
@@ -22,22 +29,26 @@ client_id = f'python-mqtt-{random.randint(0, 1000)}'
 
 # Create your views here.
 
-
+@login_required(redirect_field_name = None, login_url='/login.html')
 def home(request):
     return render(request, 'ifaccapp/home.html', {'home': home})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def people(request):
     people = Person.objects.all()
     return render(request, 'ifaccapp/people.html', {'people': people})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def ambients(request):
     ambients = Ambient.objects.all()
     return render(request, 'ifaccapp/ambients.html', {'ambients': ambients})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def schedules(request):
     schedules = Schedule.objects.all()
     return render(request, 'ifaccapp/schedules.html', {'schedules': schedules})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def register_ambient(request):
     if request.method == "POST":
         register_ambient = AmbientForm(request.POST)
@@ -49,6 +60,7 @@ def register_ambient(request):
         register_ambient = AmbientForm()
     return render(request, 'ifaccapp/register/register_ambient.html', {'register_ambient': register_ambient})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def register_person(request):
     if request.method == "POST":
         register_person = PersonForm(request.POST)
@@ -60,6 +72,7 @@ def register_person(request):
         register_person = PersonForm()
     return render(request, 'ifaccapp/register/register_person.html', {'register_person': register_person})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def register_schedule(request):
     if request.method == "POST":
         register_schedule = ScheduleForm(request.POST)
@@ -71,6 +84,7 @@ def register_schedule(request):
         register_schedule = ScheduleForm()
     return render(request, 'ifaccapp/register/register_schedule.html', {'register_schedule': register_schedule})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def edit_ambient(request, pk):
     ambient = get_object_or_404(Ambient, pk=pk)
     if request.method == "POST":
@@ -83,6 +97,7 @@ def edit_ambient(request, pk):
         edit_ambient = AmbientForm(instance=ambient)
     return render(request, 'ifaccapp/edit/edit_ambient.html', {'edit_ambient': edit_ambient})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def edit_person(request, pk):
     person = get_object_or_404(Person, pk=pk)
     if request.method == "POST":
@@ -95,6 +110,7 @@ def edit_person(request, pk):
         edit_person = PersonForm(instance=person)
     return render(request, 'ifaccapp/edit/edit_person.html', {'edit_person': edit_person})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def edit_schedule(request, pk):
     schedule = get_object_or_404(Schedule, pk=pk)
     if request.method == "POST":
@@ -107,25 +123,31 @@ def edit_schedule(request, pk):
         edit_schedule = ScheduleForm(instance=schedule)
     return render(request, 'ifaccapp/edit/edit_schedule.html', {'edit_schedule': edit_schedule})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def remove_person(request, pk):
     Person.objects.get(pk=pk).delete()
     return redirect('people')
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def remove_ambient(request, pk):
     Ambient.objects.get(pk=pk).delete()
     return redirect('ambients')
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def remove_schedule(request, pk):
     Schedule.objects.get(pk=pk).delete()
     return redirect('schedules')
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def view_specific_schedules(request, pk):
     schedules = Schedule.objects.filter(ambient=pk)
     return render(request, 'ifaccapp/specific_schedules.html', {'schedules': schedules})
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def administration(request):
     return render(request, 'ifaccapp/administration.html')
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def csv_generator(request):
 
     schedules = Schedule.objects.all()
@@ -177,6 +199,7 @@ def csv_generator(request):
 
     return redirect('administration')
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
@@ -191,6 +214,7 @@ def connect_mqtt():
     client.connect(broker, port)
     return client
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def publish(client):
     with open('cadastro.csv') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=",")
@@ -218,8 +242,55 @@ def publish(client):
         msg_count += 1
     '''
 
+@login_required(redirect_field_name = None, login_url='/login.html')
 def sent_to_arduino():
     client = connect_mqtt()
     client.loop_start()
     publish(client)
     client.loop_stop()
+
+def signup(request):
+    signup = SignupForm()
+    if request.method == "POST":
+        signup = SignupForm(data=request.POST)
+
+        if signup.is_valid():
+            username = signup.cleaned_data.get('user')
+            password = signup.cleaned_data.get('password')
+            confirmPassword = signup.cleaned_data.get('confirmPassword')
+
+            if username and password and confirmPassword and (password == confirmPassword):
+                userObject = User.objects.create_user(
+                    username = username,
+                    password = password
+                )
+
+                if userObject:
+                    return HttpResponseRedirect(reverse('login'))
+
+    return render(request, 'ifaccapp/signup.html', {'signup': signup, 'error': "Usuário ou senha inválidos."})
+
+def loginView(request):
+    loginForm = LoginForm()
+
+    if request.method == "GET":
+        return render(request, 'ifaccapp/login.html', {'login': loginForm})
+
+    if request.method == "POST":
+        loginForm = LoginForm(data=request.POST)
+
+        if loginForm.is_valid():
+            username = loginForm.cleaned_data.get('user')
+            password = loginForm.cleaned_data.get('password')
+
+            if username and password and authenticate(username=username, password=password):
+                user = User.objects.get_by_natural_key(username)
+                login(request, user)
+                return HttpResponseRedirect(reverse('home'))
+
+        return render(request, 'ifaccapp/login.html', {'login': loginForm, 'error': "Usuário ou senha inválidos."})
+
+@login_required(redirect_field_name = None, login_url='/login.html')
+def logoutView(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('login'))

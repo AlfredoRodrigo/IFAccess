@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cbf98a0a-9035-4a5e-b25b-887da3904e59" name="Default" comment="Instalando versão do Django e lib paho-mqtt">
+    <list default="true" id="cbf98a0a-9035-4a5e-b25b-887da3904e59" name="Default" comment="Adicionando signup e parte do login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cadastro.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/administration.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/administration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/ambients.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/ambients.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/people.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/schedules.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/schedules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/specific_schedules.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/specific_schedules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccess/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,6 +259,9 @@
       <workItem from="1644286476214" duration="640000" />
       <workItem from="1644287166336" duration="12304000" />
       <workItem from="1645843702088" duration="5481000" />
+      <workItem from="1650219105562" duration="15405000" />
+      <workItem from="1650236080537" duration="53000" />
+      <workItem from="1650406592041" duration="7303000" />
     </task>
     <task id="LOCAL-00001" summary="Subindo atualizações">
       <created>1646403814454</created>
@@ -273,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646414063586</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adicionando signup e parte do login">
+      <created>1650235990348</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650235990348</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -321,17 +339,8 @@
     <MESSAGE value="Subindo atualizações" />
     <MESSAGE value="Inserindo 'https:' no caminho do Bootstrap" />
     <MESSAGE value="Instalando versão do Django e lib paho-mqtt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Instalando versão do Django e lib paho-mqtt" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ifaccapp/models.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Adicionando signup e parte do login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando signup e parte do login" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ifaccapp/templates/ifaccapp/people.html">
