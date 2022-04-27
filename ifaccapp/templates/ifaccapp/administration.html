@@ -11,7 +11,7 @@
         <title>IF Access | Administração</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col3">
@@ -35,11 +35,17 @@
                                 <li>
                                     <a href="{% url 'administration' %}"><button type="button" class="btn btn-selected-special"><span class="glyphicon glyphicon-cog"></span> Administração</button></a>
                                 </li>
-                                <li>
-                                    <a href="{% url 'logout' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-log-out"></span></button></a>
-                                </li>
                             </ul>
                         </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
                     </div>
                 </header>
             </div>
@@ -50,6 +56,12 @@
                     <ul class="menu top-inline sem-marcador">
                         <li>
                             <a href="{% url 'csv_generator' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-floppy-save"></span> Gerar CSV</button></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'signup' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-user"></span> Adicionar usuário</button></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}"><button type="button" class="btn"><span class="glyphicon glyphicon-log-out"></span> Sair</button></a>
                         </li>
                     </ul>
                 </header>

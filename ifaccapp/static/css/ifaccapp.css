@@ -176,6 +176,8 @@ ul.sem-marcador {
     font-size: 20pt;
     width: 200px;
     height: 200px;
+    background-color: rgba(118, 179, 118, 0.58);
+    color: #000000;
 }
 
 .people-grid-container {
@@ -312,4 +314,8 @@ ul.sem-marcador {
 
 button:hover {
     background-color: #CCCCCC;
+}
+
+button.btn-home:hover {
+    background-color: #76B376;
 }

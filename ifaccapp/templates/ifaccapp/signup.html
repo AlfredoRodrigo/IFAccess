@@ -11,11 +11,20 @@
         <title>IF Access | Cadastro de usuário</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col12">
                         <h1 class="logo">Cadastro de usuário</h1>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
                     </div>
                 </header>
             </div>

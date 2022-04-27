@@ -248,7 +248,8 @@ def sent_to_arduino():
     client.loop_start()
     publish(client)
     client.loop_stop()
-
+    
+@login_required(redirect_field_name = None, login_url='/login.html')
 def signup(request):
     signup = SignupForm()
     if request.method == "POST":

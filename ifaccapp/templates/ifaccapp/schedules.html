@@ -11,7 +11,7 @@
         <title>IF Access | Horários</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col3">
@@ -44,6 +44,15 @@
                 </header>
             </div>
         </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
+                    </div>
+                </header>
+            </div>
+        </div>
         <div class="content-schedule">
             {% if schedules.count != 0 %}
                 <div class="linha-top-menu">
@@ -56,26 +65,45 @@
                     </header>
                 </div>
                 <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <!--<div class="schedule-grid-container">-->
-                            <!-- Esse código comentado acima estava no lugar da linha abaixo. Restaurar, em caso de problemas. -->
-                            <div class="people-grid-container" style="grid-template-columns: 215px 215px 215px 215px; grid-gap: 20px">
-                                {% for schedule in schedules %}
-                                    <div>
-                                        {{ schedule.ambient }} <br/>
-                                        {{ schedule.day }} <br/>
-                                        {{ schedule.entryTime }} -
-                                        {{ schedule.exitTime }} <br/>
-                                        {{ schedule.person}} <br/>
-                                        <a class="btn btn-default" href="{% url 'edit_schedule' pk=schedule.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                                        <a class="btn btn-default" href="{% url 'remove_schedule' pk=schedule.pk %}"><span class="glyphicon glyphicon-minus-sign"></span> Remover</a>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </header>
+                    <div class="coluna col3">
+                        <label>Ambiente</label>
+                    </div>
+                    <div class="coluna col2">
+                        <label>Dia</label>
+                    </div>
+                    <div class="coluna col2">
+                        <label>Hora de entrada</label>
+                    </div>
+                    <div class="coluna col2">
+                        <label>Hora de saída</label>
+                    </div>
+                    <div class="coluna col2">
+                        <label>Pessoa</label>
+                    </div>
                 </div>
+                {% for schedule in schedules %}
+                    <div class="linha" style="padding: 20px 0 10px 0; border-bottom: 1px solid #eee">
+                        <div class="coluna col3">
+                            {{ schedule.ambient }}
+                        </div>
+                        <div class="coluna col2">
+                            {{ schedule.day }}
+                        </div>
+                        <div class="coluna col2">
+                            {{ schedule.entryTime }}
+                        </div>
+                        <div class="coluna col2">
+                            {{ schedule.exitTime }}
+                        </div>
+                        <div class="coluna col2">
+                            {{ schedule.person }}
+                        </div>
+                        <div class="coluna col2">
+                            <a class="btn btn-default" href="{% url 'edit_schedule' pk=schedule.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a class="btn btn-default" href="{% url 'remove_schedule' pk=schedule.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </div>
+                {% endfor %}
             {% else %}
                 <div class="linha-top-menu" style="padding: 10px">
                     <h4><br/>Não há horários cadastrados no sistema.<br/><br/>

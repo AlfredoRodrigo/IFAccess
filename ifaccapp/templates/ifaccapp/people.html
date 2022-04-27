@@ -11,7 +11,7 @@
         <title>IF Access | Pessoas</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col3">
@@ -44,6 +44,15 @@
                 </header>
             </div>
         </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
+                    </div>
+                </header>
+            </div>
+        </div>
         <div class="content-people">
             <div class="linha-top-menu">
                 <header>
@@ -55,22 +64,33 @@
                 </header>
             </div>
             <div class="linha">
-                <header>
-                    <div class="coluna col12">
-                        <div class="people-grid-container" style="grid-template-columns: 215px 215px 215px 215px; grid-gap: 20px">
-                            {% for person in people %}
-                                <div>
-                                    {{ person.name }} <br/>
-                                    <b>Matrícula:</b> {{ person.registration }} <br/>
-                                    Tag: {{ person.tag }} <br/>
-                                    <a class="btn btn-default" href="{% url 'edit_person' pk=person.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a class="btn btn-default" href="{% url 'remove_person' pk=person.pk %}"><span class="glyphicon glyphicon-minus-sign"></span> Remover</a>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </header>
+                <div class="coluna col7">
+                    <label>Nome</label>
+                </div>
+                <div class="coluna col2">
+                    <label>Matrícula</label>
+                </div>
+                <div class="coluna col2">
+                    <label>Tag RFID</label>
+                </div>
             </div>
+            {% for person in people %}
+                <div class="linha" style="padding: 20px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col7">
+                        {{ person.name }}
+                    </div>
+                    <div class="coluna col2">
+                        {{ person.registration }}
+                    </div>
+                    <div class="coluna col2">
+                        {{ person.tag }}
+                    </div>
+                    <div class="coluna col2">
+                        <a class="btn btn-default" href="{% url 'edit_person' pk=person.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'remove_person' pk=person.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </body>
 </html>

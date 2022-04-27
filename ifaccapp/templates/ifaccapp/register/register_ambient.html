@@ -11,7 +11,7 @@
         <title>IF Access | Cadastro de ambiente</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col12">
@@ -20,51 +20,56 @@
                 </header>
             </div>
         </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
+                    </div>
+                </header>
+            </div>
+        </div>
         <div>
             <form method="POST" class="register_ambient_form">{% csrf_token %}
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-ambient-grid-container" style="grid-template-columns: auto">
-                                <div>
-                                    <strong>Tipo de ambiente:</strong><br/><br/>
-                                    {{ register_ambient.type }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                <div class="linha" style="padding: 20px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Tipo de ambiente:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ register_ambient.type }}
+                    </div>
                 </div>
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-ambient-grid-container" style="grid-template-columns: auto auto; padding: 10px 0 0 0">
-                                <div>
-                                    <strong>Nome:</strong><br/><br/>
-                                    {{ register_ambient.name }}<br/>
-                                </div>
-                                <div>
-                                    <strong>ID:</strong><br/><br/>
-                                    {{ register_ambient.ID }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Nome:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ register_ambient.name }}
+                    </div>
                 </div>
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-ambient-grid-container" style="grid-template-columns: auto auto; padding: 10px 0 0 0">
-                                <div>
-                                    <strong>IP:</strong><br/><br/>
-                                    {{ register_ambient.IP }}<br/>
-                                </div>
-                                <div>
-                                    <strong>Máscara:</strong><br/><br/>
-                                    {{ register_ambient.mask }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Sigla:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ register_ambient.ID }}
+                    </div>
+                </div>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Endereço IP:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ register_ambient.IP }}
+                    </div>
+                </div>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Máscara de subrede:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ register_ambient.mask }}
+                    </div>
                 </div>
                 <div class="linha-bottom-menu">
                     <header>
