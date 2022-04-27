@@ -11,7 +11,7 @@
         <title>IF Access | Editar horário</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col12">
@@ -20,43 +20,56 @@
                 </header>
             </div>
         </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
+                    </div>
+                </header>
+            </div>
+        </div>
         <div>
             <form method="POST" class="edit_schedule_form">{% csrf_token %}
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-schedule-grid-container" style="grid-template-columns: 280px 300px 300px">
-                                <div>
-                                    <strong>Dia:</strong><br/><br/>
-                                    {{ edit_schedule.day }}<br/>
-                                </div>
-                                <div>
-                                    <strong>Hora de entrada:</strong><br/><br/>
-                                    {{ edit_schedule.entryTime }}<br/>
-                                </div>
-                                <div>
-                                    <strong>Hora de saída:</strong><br/><br/>
-                                    {{ edit_schedule.exitTime }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                <div class="linha" style="padding: 20px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Dia:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_schedule.day }}
+                    </div>
                 </div>
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-schedule-grid-container" style="grid-template-columns: 450px 450px; padding: 10px 0 0 0">
-                                <div>
-                                    <strong>Pessoa:</strong><br/><br/>
-                                    {{ edit_schedule.person }}<br/>
-                                </div>
-                                <div>
-                                    <strong>Ambiente:</strong><br/><br/>
-                                    {{ edit_schedule.ambient }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Hora de entrada:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_schedule.entryTime }}
+                    </div>
+                </div>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Hora de saída:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_schedule.exitTime }}
+                    </div>
+                </div>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Pessoa:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_schedule.person }}
+                    </div>
+                </div>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Ambiente:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_schedule.ambient }}
+                    </div>
                 </div>
                 <div class="linha-bottom-menu">
                     <header>

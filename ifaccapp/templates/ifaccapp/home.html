@@ -7,15 +7,15 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/ifaccapp.css' %}">
+        <link rel="stylesheet" href="{% static '/css/ifaccapp.css' %}">
         <title>IF Access | Início</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col3">
-                        <h1 class="logo">IF Access {{ request.user.username }}</h1>
+                        <h1 class="logo">IF Access</h1>
                     </div>
                     <div class="coluna col9">
                         <nav>
@@ -28,6 +28,15 @@
                                 </li>
                             </ul>
                         </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
                     </div>
                 </header>
             </div>

@@ -11,7 +11,7 @@
         <title>IF Access | Editar pessoa</title>
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="border: none">
             <div class="linha">
                 <header>
                     <div class="coluna col12">
@@ -20,36 +20,41 @@
                 </header>
             </div>
         </div>
+        <div style="background-color: #76B376">
+            <div class="linha" style="padding: 0 0 0 0">
+                <header>
+                    <div class="coluna col12" style="color: #FFF; font-size: 14px; text-align: left; padding: 10px 10px">
+                        <span class="glyphicon glyphicon-user"></span> {{ request.user.username }}
+                    </div>
+                </header>
+            </div>
+        </div>
         <div>
             <form method="POST" class="edit_person_form">{% csrf_token %}
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-person-grid-container" style="grid-template-columns: auto">
-                                <div>
-                                    <strong>Nome:</strong><br/><br/>
-                                    {{ edit_person.name }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                <div class="linha" style="padding: 20px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Nome:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_person.name }}
+                    </div>
                 </div>
-                <div class="linha">
-                    <header>
-                        <div class="coluna col12">
-                            <div class="register-person-grid-container" style="grid-template-columns: auto auto; padding: 10px 0 0 0">
-                                <div>
-                                    <strong>Matrícula:</strong><br/><br/>
-                                    {{ edit_person.registration }}<br/>
-                                </div>
-                                <div>
-                                    <strong>Tag:</strong><br/><br/>
-                                    {{ edit_person.tag }}<br/>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-                </div>                
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Matrícula:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_person.registration }}
+                    </div>
+                </div>
+                <div class="linha" style="padding: 10px 0 10px 0; border-bottom: 1px solid #eee">
+                    <div class="coluna col2">
+                        <label>Tag RFID:</label>
+                    </div>
+                    <div class="coluna col10">
+                        {{ edit_person.tag }}
+                    </div>
+                </div>
                 <div class="linha-bottom-menu">
                     <header>
                         <ul class="menu bottom-inline sem-marcador">

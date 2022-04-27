@@ -2,9 +2,9 @@ from django.core.exceptions import ValidationError
 from django.db import models
 
 class Person(models.Model):
-    name = models.TextField(null=True, max_length=100, verbose_name="Nome")
+    name = models.CharField(null=True, max_length=100, verbose_name="Nome")
     registration = models.BigIntegerField(primary_key=True, verbose_name="Matrícula")  # matrícula
-    tag = models.TextField(null=True)
+    tag = models.CharField(null=True, max_length=100)
 
     def __str__(self):
         return self.name
@@ -23,10 +23,10 @@ class Ambient(models.Model):
     )
 
     type = models.TextField(null=True, max_length=50, choices=TYPE_CHOICES, verbose_name="Tipo de ambiente")
-    name = models.TextField(null=True, max_length=100, verbose_name="Nome")
-    ID = models.TextField(primary_key=True, max_length=50)
-    IP = models.TextField(null=True, max_length=15, verbose_name="IP")
-    mask = models.TextField(null=True, max_length=15, verbose_name="Máscara")
+    name = models.CharField(null=True, max_length=100, verbose_name="Nome")
+    ID = models.CharField(primary_key=True, max_length=50)
+    IP = models.CharField(null=True, max_length=15, verbose_name="IP")
+    mask = models.CharField(null=True, max_length=15, verbose_name="Máscara")
 
 
     def __str__(self):
