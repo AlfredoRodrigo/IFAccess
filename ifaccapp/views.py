@@ -199,7 +199,7 @@ def csv_generator(request):
 
     return redirect('administration')
 
-@login_required(redirect_field_name = None, login_url='/login.html')
+#@login_required(redirect_field_name = None, login_url='/login.html')
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
@@ -214,7 +214,7 @@ def connect_mqtt():
     client.connect(broker, port)
     return client
 
-@login_required(redirect_field_name = None, login_url='/login.html')
+#@login_required(redirect_field_name = None, login_url='/login.html')
 def publish(client):
     with open('cadastro.csv') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=",")
@@ -242,7 +242,7 @@ def publish(client):
         msg_count += 1
     '''
 
-@login_required(redirect_field_name = None, login_url='/login.html')
+#@login_required(redirect_field_name = None, login_url='/login.html')
 def sent_to_arduino():
     client = connect_mqtt()
     client.loop_start()
