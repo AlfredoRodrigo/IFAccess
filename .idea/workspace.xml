@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cbf98a0a-9035-4a5e-b25b-887da3904e59" name="Default" comment="Comentando anotações @login_required dos métodos connect_mqtt(), publish() e sent_to_arduino(), na views.py.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ifaccapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +257,7 @@
       <workItem from="1651078864780" duration="7858000" />
       <workItem from="1655838177103" duration="804000" />
       <workItem from="1655839728555" duration="147000" />
-      <workItem from="1655841411423" duration="1985000" />
+      <workItem from="1655841411423" duration="3343000" />
     </task>
     <task id="LOCAL-00001" summary="Subindo atualizações">
       <created>1646403814454</created>
