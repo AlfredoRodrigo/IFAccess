@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbf98a0a-9035-4a5e-b25b-887da3904e59" name="Default" comment="Comentando anotações @login_required dos métodos connect_mqtt(), publish() e sent_to_arduino(), na views.py.">
-      <change beforePath="$PROJECT_DIR$/ifaccapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ifaccapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/edit/edit_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/edit/edit_person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/people.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/register/register_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/templates/ifaccapp/register/register_person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ifaccapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ifaccapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
