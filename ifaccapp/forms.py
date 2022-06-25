@@ -8,7 +8,7 @@ from .models import Login
 class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = ('name', 'registration', 'tag')
+        fields = ('name', 'registration', 'rfidtag')
 
 class AmbientForm(forms.ModelForm):
     class Meta:

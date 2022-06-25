@@ -163,7 +163,7 @@ def csv_generator(request):
             row.append(str(schedule.exitTime))
             row.append(str(schedule.person.registration))
             row.append(schedule.ambient.ID)
-            row.append(str(schedule.person.tag) + ";")
+            row.append(str(schedule.person.rfidtag) + ";")
             rows.append(row)
 
         for r in rows:
